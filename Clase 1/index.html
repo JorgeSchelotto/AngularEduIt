@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJs</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+
+	<script src="js/codigo.js"></script>
+</head>
+<body ng-app="mi app">
+	
+	<div ng-controller="crtl4">
+
+
+		<main class="container">
+
+		<table class="table text-center">
+			<tr class="bg-success">
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Edad</th>
+			<th>Coaching</th>
+			</tr>
+			<tr ng-repeat="empleado in empleados">
+				<td>{{empleado.nombre}}</td>
+				<td>{{empleado.Apellido}}</td>
+				<td>{{empleado.Edad}}</td>
+				<td>{{empleado.Coaching}}</td>
+				
+			</tr>
+
+
+		</table>
+
+		<form ng-controller="formuCtrl">
+
+		<div class="form-group">
+			<label> Nombre <input type="text" class="form-control" 
+				ng-model= "formu.nombre">
+				
+			</label>
+		</div>
+
+		<div class="form-group">
+			<label> Apellido <input type="text" class="form-control" 
+				ng-model= "formu.Apellido">
+				
+			</label>
+		</div>
+
+		<div class="form-group">
+			<label> Edad <input type="number" class="form-control" 
+				ng-model= "formu.Edad">
+				
+			</label>
+			<br>
+			<input ng-click="agregar()" type="button" value="agregar empleado" class="btn btn-success" >
+			
+
+		</div>
+		</form>
+
+		<div class="jumbotron" ng-controller="mediaCtrl" >
+			
+			<p> Hay un total de {{mostrar()}} Coacheados sobre {{empleados.length}} empleados en total.</p>
+			
+
+		</div>
+
+
+
+		<div class="jumbotron">
+
+			<div class="media" ng-repeat="empleado in empleados">
+				<img class="mr-3" src="..." alt="Imagen del empleado">
+				<div class="media-body" >
+				<h5 class="mt-0" > 
+				{{empleado.Apellido}} </h5>
+				<p> {{empleado.Descripcion}} </p>
+				<p>El empleado recibio coaching: <input type="checkbox" ng-model = "empleado.Coaching" > </p>
+
+			</div>	
+
+			</div>
+			
+		</div>
+		</main>
+
+	</div>
+
+
+
+	
+</body>
+</html>
